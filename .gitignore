@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+env/
+build/
+dist/
+downloads/
+*.egg-info/
+
+# Log and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+*.pid
+
+# Environment files
+credentials.env
+
+# OS or Editor artifacts
+.DS_Store
+Thumbs.db
+*.orig
+*.bak
+*.sublime-*
+*~
+
+# Specific to IDEs like PyCharm
+.idea/
+*.ipr
+*.iws
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Testing and Coverage
+.coverage
+htmlcov/
+.pytest_cache/
