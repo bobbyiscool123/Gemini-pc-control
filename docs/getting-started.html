@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - Gemini PC Control</title>
+    <meta name="description" content="Learn how to set up and run Gemini PC Control for the first time">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Material Design Web Components -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Documentation specific CSS -->
+    <style>
+        .doc-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+        
+        .doc-navigation {
+            position: sticky;
+            top: 84px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+        
+        .doc-sidebar {
+            width: 250px;
+            padding: var(--spacing-md);
+        }
+        
+        .doc-layout {
+            display: flex;
+            gap: var(--spacing-xl);
+            padding-top: var(--spacing-xl);
+        }
+        
+        @media (max-width: 768px) {
+            .doc-layout {
+                flex-direction: column;
+            }
+            
+            .doc-sidebar {
+                width: 100%;
+            }
+        }
+        
+        .section-title {
+            margin-top: var(--spacing-xxl);
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .section-title:first-child {
+            margin-top: 0;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: var(--spacing-xs) 0;
+            color: var(--muted-text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .toc-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .toc-link.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .step-card {
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+        
+        .image-container {
+            margin: var(--spacing-lg) 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .caption {
+            margin-top: var(--spacing-sm);
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .tip-card {
+            background-color: rgba(52, 168, 83, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--radius-sm);
+        }
+        
+        .warning-card {
+            background-color: rgba(251, 188, 4, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--radius-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <a href="index.html" class="mdc-top-app-bar__title">Gemini PC Control</a>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                <nav class="header-nav">
+                    <a href="index.html#features" class="mdc-button"><span class="mdc-button__ripple"></span>Features</a>
+                    <a href="index.html#architecture" class="mdc-button"><span class="mdc-button__ripple"></span>Architecture</a>
+                    <a href="index.html#installation" class="mdc-button"><span class="mdc-button__ripple"></span>Installation</a>
+                    <a href="index.html#documentation" class="mdc-button"><span class="mdc-button__ripple"></span>Documentation</a>
+                    <a href="https://github.com/yourusername/gemini-pc-control" class="mdc-button" target="_blank">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon">code</i>
+                        GitHub
+                    </a>
+                </nav>
+            </section>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="doc-layout">
+            <!-- Sidebar -->
+            <aside class="doc-sidebar">
+                <div class="doc-navigation">
+                    <h3 class="mdc-typography--headline6">Getting Started</h3>
+                    <nav>
+                        <a href="#prerequisites" class="toc-link">Prerequisites</a>
+                        <a href="#installation" class="toc-link">Installation</a>
+                        <a href="#first-run" class="toc-link">First Run</a>
+                        <a href="#api-key" class="toc-link">API Key Setup</a>
+                        <a href="#basic-commands" class="toc-link">Basic Commands</a>
+                        <a href="#troubleshooting" class="toc-link">Troubleshooting</a>
+                        <a href="#next-steps" class="toc-link">Next Steps</a>
+                    </nav>
+                    
+                    <h3 class="mdc-typography--headline6 mt-4">Documentation</h3>
+                    <nav>
+                        <a href="getting-started.html" class="toc-link active">Getting Started</a>
+                        <a href="api-reference.html" class="toc-link">API Reference</a>
+                        <a href="plugin-development.html" class="toc-link">Plugin Development</a>
+                        <a href="troubleshooting.html" class="toc-link">Troubleshooting</a>
+                    </nav>
+                </div>
+            </aside>
+            
+            <!-- Main Content -->
+            <div class="doc-content">
+                <h1 class="mdc-typography--headline3">Getting Started with Gemini PC Control</h1>
+                <p class="mdc-typography--body1">
+                    This guide will help you get Gemini PC Control up and running on your system.
+                    Follow these steps to install the software, set up your API key, and start controlling your PC with natural language commands.
+                </p>
+                
+                <h2 id="prerequisites" class="mdc-typography--headline4 section-title">Prerequisites</h2>
+                <p class="mdc-typography--body1">
+                    Before you begin, make sure you have the following prerequisites:
+                </p>
+                
+                <div class="glass-card">
+                    <ul class="mdc-list">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">check_circle</i>
+                            <span class="mdc-list-item__text">Python 3.11 or higher installed on your system</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">check_circle</i>
+                            <span class="mdc-list-item__text">Google Gemini API key (you can get one from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>)</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">check_circle</i>
+                            <span class="mdc-list-item__text">Basic understanding of terminal/command line</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">check_circle</i>
+                            <span class="mdc-list-item__text">System-specific dependencies (see below)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <h3 class="mdc-typography--headline5">System-Specific Dependencies</h3>
+                
+                <div class="glass-card step-card">
+                    <div class="step-number">1</div>
+                    <h4 class="mdc-typography--headline6">Linux (Debian/Ubuntu)</h4>
+                    <div class="code-block">
+                        <pre><code>sudo apt-get update
+sudo apt-get install -y python3-dev python3-venv
+sudo apt-get install -y qt6-base-dev libqt6-dev
+sudo apt-get install -y build-essential libssl-dev libffi-dev</code></pre>
+                    </div>
+                </div>
+                
+                <div class="glass-card step-card">
+                    <div class="step-number">2</div>
+                    <h4 class="mdc-typography--headline6">macOS</h4>
+                    <div class="code-block">
+                        <pre><code>brew install qt@6
+export PATH="/opt/homebrew/opt/qt@6/bin:$PATH"</code></pre>
+                    </div>
+                    <p class="mdc-typography--body2">
+                        You may want to add the PATH export to your .zshrc or .bash_profile file.
+                    </p>
+                </div>
+                
+                <div class="glass-card step-card">
+                    <div class="step-number">3</div>
+                    <h4 class="mdc-typography--headline6">Windows</h4>
+                    <p class="mdc-typography--body1">
+                        Install the following:
+                    </p>
+                    <ul class="mdc-list">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text"><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/" target="_blank">Microsoft Visual C++ Build Tools</a></span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <span class="mdc-list-item__text"><a href="https://www.qt.io/download" target="_blank">Qt6</a> (Download from qt.io)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <h2 id="installation" class="mdc-typography--headline4 section-title">Installation</h2>
+                
+                <p class="mdc-typography--body1">
+                    You can install Gemini PC Control using the automated setup or manually.
+                </p>
+                
+                <h3 class="mdc-typography--headline5">Method 1: Automated Setup (Recommended)</h3>
+                
+                <div class="glass-card">
+                    <div class="code-block">
+                        <pre><code>git clone https://github.com/yourusername/gemini-pc-control.git
+cd gemini-pc-control
+python setup.py setup_env</code></pre>
+                    </div>
+                    
+                    <p class="mdc-typography--body1">
+                        The automated setup will:
+                    </p>
+                    <ul class="mdc-list">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px; color: var(--primary-color);">check</i>
+                            <span class="mdc-list-item__text">Create a virtual environment</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px; color: var(--primary-color);">check</i>
+                            <span class="mdc-list-item__text">Install all dependencies</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px; color: var(--primary-color);">check</i>
+                            <span class="mdc-list-item__text">Prompt for your Gemini API key</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px; color: var(--primary-color);">check</i>
+                            <span class="mdc-list-item__text">Set up configuration files</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/setup-env-demo.svg" alt="Setup environment demo">
+                    <p class="caption">Automated setup environment in action</p>
+                </div>
+                
+                <h3 class="mdc-typography--headline5">Method 2: Manual Installation</h3>
+                
+                <div class="glass-card">
+                    <ol class="mdc-list mdc-list--non-interactive">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>1. Clone the repository</strong><br>
+                                <div class="code-block">
+                                    <pre><code>git clone https://github.com/yourusername/gemini-pc-control.git
+cd gemini-pc-control</code></pre>
+                                </div>
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>2. Create a virtual environment</strong><br>
+                                <div class="code-block">
+                                    <pre><code># Using venv (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate</code></pre>
+                                </div>
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>3. Install dependencies</strong><br>
+                                <div class="code-block">
+                                    <pre><code>pip install -r requirements.txt</code></pre>
+                                </div>
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>4. Create a .env file</strong><br>
+                                <div class="code-block">
+                                    <pre><code>echo "GEMINI_API_KEY=your_api_key_here" > .env</code></pre>
+                                </div>
+                                Replace <code>your_api_key_here</code> with your actual Gemini API key.
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-card">
+                    <p class="mdc-typography--body1">
+                        <strong>Tip:</strong> For development, install development dependencies with <code>pip install -r requirements-dev.txt</code>
+                    </p>
+                </div>
+                
+                <h2 id="first-run" class="mdc-typography--headline4 section-title">First Run</h2>
+                
+                <p class="mdc-typography--body1">
+                    After installation, you can run Gemini PC Control with:
+                </p>
+                
+                <div class="glass-card">
+                    <div class="code-block">
+                        <pre><code>python app.py</code></pre>
+                    </div>
+                    
+                    <p class="mdc-typography--body1">
+                        If you've installed via pip:
+                    </p>
+                    
+                    <div class="code-block">
+                        <pre><code>gemini-pc-control</code></pre>
+                    </div>
+                </div>
+                
+                <div class="warning-card">
+                    <p class="mdc-typography--body1">
+                        <strong>Note:</strong> On first run, if you haven't set up your API key, you'll be prompted to enter it.
+                    </p>
+                </div>
+                
+                <h2 id="api-key" class="mdc-typography--headline4 section-title">API Key Setup</h2>
+                
+                <p class="mdc-typography--body1">
+                    To use Gemini PC Control, you need a Google Gemini API key. Here's how to get one:
+                </p>
+                
+                <div class="glass-card">
+                    <ol class="mdc-list mdc-list--non-interactive">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>1. Visit Google AI Studio</strong><br>
+                                Go to <a href="https://aistudio.google.com/app/apikey" target="_blank">https://aistudio.google.com/app/apikey</a>
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>2. Create a new API key</strong><br>
+                                Sign in with your Google account and click "Create API Key"
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>3. Copy your API key</strong><br>
+                                Make note of your new API key
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                <strong>4. Set up in the application</strong><br>
+                                Either:
+                                <ul>
+                                    <li>Enter it when prompted during first run</li>
+                                    <li>Create a .env file with GEMINI_API_KEY=your_key_here</li>
+                                </ul>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="tip-card">
+                    <p class="mdc-typography--body1">
+                        <strong>Security Tip:</strong> Keep your API key secret. Do not share it or commit it to public repositories.
+                    </p>
+                </div>
+                
+                <h2 id="basic-commands" class="mdc-typography--headline4 section-title">Basic Commands</h2>
+                
+                <p class="mdc-typography--body1">
+                    Here are some basic commands you can try with Gemini PC Control:
+                </p>
+                
+                <div class="glass-card">
+                    <table class="mdc-data-table__table" style="width: 100%;">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell">Command Type</th>
+                                <th class="mdc-data-table__header-cell">Example</th>
+                                <th class="mdc-data-table__header-cell">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">Application Control</td>
+                                <td class="mdc-data-table__cell">"Open Chrome and go to google.com"</td>
+                                <td class="mdc-data-table__cell">Opens applications and performs actions</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">System Information</td>
+                                <td class="mdc-data-table__cell">"What's my current CPU usage?"</td>
+                                <td class="mdc-data-table__cell">Retrieves system information</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">File Operations</td>
+                                <td class="mdc-data-table__cell">"Create a new folder called Projects"</td>
+                                <td class="mdc-data-table__cell">Performs file system operations</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">Search</td>
+                                <td class="mdc-data-table__cell">"Find all PDF files in my Documents folder"</td>
+                                <td class="mdc-data-table__cell">Searches for files and content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2 id="troubleshooting" class="mdc-typography--headline4 section-title">Troubleshooting</h2>
+                
+                <p class="mdc-typography--body1">
+                    If you encounter issues, try these common troubleshooting steps:
+                </p>
+                
+                <div class="glass-card">
+                    <h4 class="mdc-typography--headline6">API Key Issues</h4>
+                    <p class="mdc-typography--body1">
+                        If you see errors like "API key not found" or "Authentication failed":
+                    </p>
+                    <ul class="mdc-list mdc-list--non-interactive">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                Check that your .env file exists and contains GEMINI_API_KEY=your_key_here
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                Verify that your API key is valid by testing it in the Google AI Studio
+                            </span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="mdc-typography--headline6">Installation Problems</h4>
+                    <p class="mdc-typography--body1">
+                        For dependency or installation errors:
+                    </p>
+                    <ul class="mdc-list mdc-list--non-interactive">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                Ensure you have the correct system dependencies installed
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                Try updating pip: <code>pip install --upgrade pip</code>
+                            </span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__text">
+                                Install dependencies one by one to identify which one is failing
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <p class="mdc-typography--body1">
+                        <strong>Logs:</strong> Check the logs in <code>logs/gemini_pc_control.log</code> for detailed error information.
+                    </p>
+                </div>
+                
+                <h2 id="next-steps" class="mdc-typography--headline4 section-title">Next Steps</h2>
+                
+                <p class="mdc-typography--body1">
+                    Now that you have Gemini PC Control up and running, here are some next steps to explore:
+                </p>
+                
+                <div class="glass-card">
+                    <ul class="mdc-list">
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">explore</i>
+                            <span class="mdc-list-item__text"><a href="api-reference.html">Explore the API Reference</a> to understand the application's capabilities</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">extension</i>
+                            <span class="mdc-list-item__text"><a href="plugin-development.html">Learn about Plugin Development</a> to extend functionality</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">settings</i>
+                            <span class="mdc-list-item__text">Configure advanced settings in the application's config files</span>
+                        </li>
+                        <li class="mdc-list-item">
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons" style="margin-right: 10px;">code</i>
+                            <span class="mdc-list-item__text"><a href="https://github.com/yourusername/gemini-pc-control" target="_blank">Contribute to the project</a> on GitHub</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3 class="mdc-typography--headline6">Gemini PC Control</h3>
+                <p class="mdc-typography--body2">Control your PC with natural language</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4 class="mdc-typography--subtitle1">Project</h4>
+                    <ul class="mdc-list">
+                        <li><a href="https://github.com/yourusername/gemini-pc-control" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://github.com/yourusername/gemini-pc-control/issues" target="_blank">Issue Tracker</a></li>
+                        <li><a href="https://github.com/yourusername/gemini-pc-control/releases" target="_blank">Releases</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="mdc-typography--subtitle1">Resources</h4>
+                    <ul class="mdc-list">
+                        <li><a href="https://aistudio.google.com/app/apikey" target="_blank">Get Gemini API Key</a></li>
+                        <li><a href="https://python.org" target="_blank">Python.org</a></li>
+                        <li><a href="https://pypi.org/project/google-generativeai/" target="_blank">Gemini Python SDK</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="mdc-typography--subtitle1">Documentation</h4>
+                    <ul class="mdc-list">
+                        <li><a href="getting-started.html">Getting Started</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                        <li><a href="plugin-development.html">Plugin Development</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="mdc-typography--caption">
+                &copy; 2023-2024 Gemini PC Control Team. Licensed under the MIT License.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Documentation specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Highlight active TOC links when scrolling
+            const sections = document.querySelectorAll('h2[id], h3[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            function highlightTOC() {
+                let scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+                        // Remove active class from all links
+                        tocLinks.forEach(link => link.classList.remove('active'));
+                        
+                        // Add active class to current section link
+                        const activeLink = document.querySelector(`.toc-link[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightTOC);
+            
+            // Initialize on load
+            highlightTOC();
+        });
+    </script>
+</body>
+</html> 

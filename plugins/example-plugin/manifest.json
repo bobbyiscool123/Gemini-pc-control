@@ -1,0 +1,12 @@
+{
+    "id": "example-plugin",
+    "name": "Example Plugin",
+    "version": "1.0.0",
+    "main_module": "main",
+    "main_class": "ExamplePlugin",
+    "description": "An example plugin demonstrating the plugin system",
+    "author": "Gemini PC Control Team",
+    "min_app_version": "1.0.0",
+    "max_app_version": "2.0.0",
+    "dependencies": []
+} 

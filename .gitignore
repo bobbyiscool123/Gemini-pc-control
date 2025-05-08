@@ -21,6 +21,7 @@ downloads/
 
 # Environment files
 credentials.env
+.env
 
 # OS or Editor artifacts
 .DS_Store
@@ -42,3 +43,20 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+
+# Jekyll GitHub Pages
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+docs/.sass-cache/
+
+# But keep all content files in docs
+!docs/images/
+!docs/assets/
+!docs/*.md
+!docs/*.html
+!docs/*.yml
+!docs/*.css
+!docs/*.js
+#added venv
+venv/

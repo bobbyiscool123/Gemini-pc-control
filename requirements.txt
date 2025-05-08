@@ -1,0 +1,17 @@
+# Core dependencies
+google-generativeai==0.3.1  # Google Gemini API client
+python-dotenv==1.0.0  # Environment variable management
+mss==9.0.1  # Cross-platform screenshot capture
+pyautogui==0.9.54  # GUI automation utilities
+
+# UI dependencies
+PyQt6==6.5.2  # Modern UI framework (replacing tkinter)
+
+# Utility dependencies
+pillow==10.0.1  # Image processing
+numpy==1.24.3  # Numerical operations
+requests==2.31.0  # HTTP requests
+pydantic==2.4.2  # Data validation and settings management
+
+# Logging and monitoring
+loguru==0.7.0  # Enhanced logging 

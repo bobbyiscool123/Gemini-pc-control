@@ -1,0 +1,9 @@
+# Development dependencies
+pytest==7.4.0  # Testing framework
+pytest-cov==4.1.0  # Test coverage reporting
+black==23.7.0  # Code formatting
+isort==5.12.0  # Import sorting
+flake8==6.1.0  # Linting
+mypy==1.5.1  # Type checking
+pre-commit==3.3.3  # Git hooks for code quality
+sphinx==7.2.6  # Documentation generation 

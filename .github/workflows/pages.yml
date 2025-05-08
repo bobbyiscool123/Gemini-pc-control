@@ -1,0 +1,54 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Set a branch name to trigger deployment
+  pull_request:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          cd docs
+          gem install bundler
+          bundle install
+
+      # Build the site
+      - name: Build with Jekyll
+        # Build the site using Jekyll
+        run: |
+          cd docs
+          jekyll build
+
+      # Deploy the site
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_site
+          # Keep only the latest commit
+          force_orphan: true 

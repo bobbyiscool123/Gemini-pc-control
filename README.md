@@ -1,105 +1,209 @@
-# Gemini-Powered Windows Automation
+# Gemini PC Control
 
-This project leverages the power of Google's Gemini AI model to enable natural language-driven automation of a Windows 10 environment. It interprets user prompts, analyzes screen captures, and translates requests into executable system commands, mouse actions, and keyboard inputs.
+Control your PC with natural language commands using Google's Gemini AI.
 
-## Features
+## Architecture Modernization
 
-- **Natural Language Interface:** Interact with your Windows desktop using simple, conversational commands.
-- **Visual Context:** The application analyzes screenshots to understand the current state of your desktop, ensuring accurate command execution.
-- **Automated Actions:** Performs mouse clicks, keyboard inputs, application launches, and more.
-- **Error Handling & Retries:** Implements robust error handling and retry mechanisms for better reliability.
-- **Optimized for Python 3.13.1:** Written with performance and efficiency in mind, leveraging the latest features of Python 3.13.1 where applicable.
+This project has undergone significant architecture modernization to improve maintainability, extensibility, and performance. The key improvements include:
 
-## Getting Started
+### 1. Modular Architecture
+
+The application now follows a modular architecture with separate components:
+
+- **UI**: Modern PyQt6 interface with proper separation from business logic
+- **AI**: Enhanced Gemini API integration with context tracking
+- **System**: Core system operations (screenshots, command execution)
+- **Models**: Structured data models for commands and responses
+- **Plugins**: Extensible plugin system for custom functionality
+
+### 2. Dependency Management
+
+- Proper `requirements.txt` with pinned versions
+- Development dependencies in `requirements-dev.txt`
+- Setup.py for proper packaging and installation
+
+### 3. Latest Gemini API
+
+- Updated to use the latest Google Gemini API
+- Structured prompts with context
+- Function calling for better command generation
+- Support for multimodal input
+
+### 4. Logging System
+
+- Comprehensive logging with loguru
+- Log rotation and management
+- Structured JSON logging
+- Performance tracking
+
+### 5. Plugin System
+
+- Extensible plugin architecture
+- Support for custom commands
+- Clean API for third-party developers
+- Plugin dependency management
+
+## Installation
 
 ### Prerequisites
 
-1.  **Python 3.13.1:** This project is optimized for Python 3.13.1. Ensure you have it installed.
+- Python 3.11 or higher
+- Google API key for Gemini (you'll be prompted to enter this on first run)
 
-    *   **Installation:** Download from the [official Python website](https://www.python.org/downloads/) or use your system's package manager.
-2.  **Pip (Python Package Installer):** Should come bundled with Python 3.13.1
-3.  **Git:** For cloning the repository (if applicable).
-4.  **Google Gemini API Key:** Obtain an API key from the [Google AI Studio](https://aistudio.google.com/). You will need to store it in your `.env` file or in the `credentials.env` file as `GEMINI_API_KEY=your_api_key`.
+#### System Dependencies
 
-### Installation
+Some dependencies require system-level packages, particularly for the GUI:
 
-1.  **Clone the Repository (Optional):**
+**Debian/Ubuntu:**
+```
+sudo apt-get update
+sudo apt-get install -y python3-dev python3-venv
+sudo apt-get install -y qt6-base-dev libqt6-dev  # For PyQt6
+sudo apt-get install -y build-essential libssl-dev libffi-dev
+```
 
-    ```bash
-    git clone https://github.com/your-username/your-repository.git
-    cd your-repository
-    ```
+**macOS:**
+```
+brew install qt@6
+export PATH="/opt/homebrew/opt/qt@6/bin:$PATH"
+```
 
-2.  **Create a Virtual Environment (Recommended):**
+**Windows:**
+- Microsoft Visual C++ Build Tools
+- Qt6 (Download from https://www.qt.io/download)
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Linux/macOS
-    venv\Scripts\activate  # On Windows
-    ```
+### Install from Source
 
-3. **Install Required Packages**
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/gemini-pc-control.git
+   cd gemini-pc-control
+   ```
 
-    ```bash
-        pip install -r requirements.txt
-    ```
+2. Create a virtual environment:
+   ```
+   # Option 1: Using venv (recommended)
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # Option 2: Using virtualenv
+   virtualenv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # Option 3: Using conda
+   conda create -n gemini-pc-control python=3.11
+   conda activate gemini-pc-control
+   ```
 
-    If the `requirements.txt` file does not exist then:
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-    ```bash
-    pip install google-generativeai python-dotenv mss pyautogui tkinter
-    ```
+4. For development, install development dependencies:
+   ```
+   pip install -r requirements-dev.txt
+   ```
 
-4.  **Set Up Environment Variables:**
+5. Run the application:
+   ```
+   python app.py
+   ```
+   
+   On first run, you'll be prompted to enter your Gemini API key. You can get a key from: https://aistudio.google.com/app/apikey
 
-    *   Create a `.env` file or a `credentials.env` file in the root of your project directory and add your Gemini API key:
+### Quick Setup (Automated)
 
-        ```
-        GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-        ```
+For a quick automated setup, use the setup command:
+```
+python setup.py setup_env
+```
 
-        *  If a `.env` file exists, then the `GEMINI_API_KEY` must be in that file.
-        *  If the `.env` file does not exist and a `credentials.env` file exists, then the `GEMINI_API_KEY` must be in that file.
+This will:
+- Create a virtual environment
+- Install all dependencies
+- Set up the application for you
 
-### Usage
+### Install via Pip
 
-1.  **Run the Script:**
-    ```bash
-    python your_script_name.py
-    ```
-    (Replace `your_script_name.py` with the actual name of your main script).
-2.  **Follow the Prompts:** A dialog box will appear asking how you want to interact with your computer. Enter your commands.
+```
+pip install gemini-pc-control
+```
 
-## Code Overview
+## Usage
 
-- `capture_screenshot()`: Captures a screenshot of the primary monitor using `mss` library and encodes it in base64.
-- `analyze_image_and_generate_command()`: Sends a user's prompt along with the screen capture to the Google Gemini model and receives commands.
-- `execute_command_response()`: Parses the response from the Google Gemini model and executes the commands.
-- The main execution loop in `if __name__ == "__main__":`: The main loop that captures screenshots, receives user prompts, sends them to the Gemini model, and executes the commands.
+### Running the Application
 
-## Performance Notes for Python 3.13.1
+```
+python app.py
+```
 
-This project is designed to work efficiently within the Python 3.13.1 ecosystem. Here are some key areas and best practices:
+Or if installed via pip:
 
--   **Library Optimization:** This project utilizes optimized libraries like `mss` for fast screen captures and `pyautogui` for efficient UI interactions.
--   **Minimal Overhead:** The codebase minimizes unnecessary operations, reducing overhead.
--   **Fast JSON Handling:** We are leveraging `json` which is optimized for faster parsing for efficient data transfer with the Google Gemini API.
--   **Asynchronous Operations:** Async operations should be considered for any function that could potentially block and lead to slower performance.
--   **String Handling:** Instead of concatenating strings, consider using f-strings or the `.format()` function for more efficient string construction.
--   **Profiling:** Profile sections of the code to determine performance bottlenecks and implement changes as needed to improve the performance.
+```
+gemini-pc-control
+```
 
-## Contributing
+### Command Line Options
 
-Contributions are welcome! If you would like to improve the project, please follow these steps:
-- Fork the repository.
-- Create a new branch for your changes.
-- Implement your changes.
-- Open a pull request with a clear description of your updates.
+- `--config`: Path to custom configuration file
+- `--log-level`: Set logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+
+## Developing Plugins
+
+Plugins allow you to extend the functionality of Gemini PC Control. To create a plugin:
+
+1. Create a new directory in the `plugins` directory with your plugin name
+2. Create a `manifest.json` file with metadata about your plugin
+3. Implement the required plugin interface
+
+Example `manifest.json`:
+```json
+{
+    "id": "example-plugin",
+    "name": "Example Plugin",
+    "version": "1.0.0",
+    "main_module": "main",
+    "main_class": "ExamplePlugin",
+    "description": "An example plugin demonstrating the plugin system",
+    "author": "Your Name",
+    "min_app_version": "1.0.0",
+    "max_app_version": "2.0.0",
+    "dependencies": []
+}
+```
+
+Example plugin implementation:
+```python
+from gemini_pc_control.plugins.command_plugin import CommandPlugin
+
+class ExamplePlugin(CommandPlugin):
+    @property
+    def id(self) -> str:
+        return "example-plugin"
+    
+    @property
+    def name(self) -> str:
+        return "Example Plugin"
+    
+    @property
+    def version(self) -> str:
+        return "1.0.0"
+    
+    def get_commands(self) -> List[str]:
+        return ["hello"]
+    
+    def execute_command(self, command: str, context: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        if command == "hello":
+            return {"message": "Hello, world!"}
+        return None
+    
+    def get_command_help(self, command: str) -> str:
+        if command == "hello":
+            return "Displays a hello world message"
+        return super().get_command_help(command)
+```
 
 ## License
 
-[Specify your project's license here. For example, MIT License.]
-
----
-
-**Note**: Replace `your-username/your-repository.git` with the actual URL of your git repository and `your_script_name.py` with the name of your main script.
+This project is licensed under the MIT License - see the LICENSE file for details.

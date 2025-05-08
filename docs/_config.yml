@@ -1,0 +1,42 @@
+# Jekyll configuration for Gemini PC Control GitHub Pages
+title: Gemini PC Control
+description: Control your PC with natural language commands using Google's Gemini AI
+url: https://yourusername.github.io/gemini-pc-control
+baseurl: /gemini-pc-control
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .idea
+  - .gitignore
+  - README.md
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "docs" 
