@@ -10,7 +10,7 @@ PyQt6==6.5.2  # Modern UI framework (replacing tkinter)
 # Utility dependencies
 pillow==10.0.1  # Image processing
 numpy==1.24.3  # Numerical operations
-requests==2.31.0  # HTTP requests
+requests==2.32.2  # HTTP requests
 pydantic==2.4.2  # Data validation and settings management
 
 # Logging and monitoring
