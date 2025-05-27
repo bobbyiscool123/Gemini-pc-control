@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini PC Control - AI-Powered Computer Control</title>
+    <meta name="description" content="Control your PC with natural language commands using Google's Gemini AI">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Material Design Web Components -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Header -->
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <span class="mdc-top-app-bar__title">Gemini PC Control</span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                <nav class="header-nav">
+                    <a href="#features" class="mdc-button"><span class="mdc-button__ripple"></span>Features</a>
+                    <a href="#architecture" class="mdc-button"><span class="mdc-button__ripple"></span>Architecture</a>
+                    <a href="#installation" class="mdc-button"><span class="mdc-button__ripple"></span>Installation</a>
+                    <a href="#documentation" class="mdc-button"><span class="mdc-button__ripple"></span>Documentation</a>
+                    <a href="https://github.com/yourusername/gemini-pc-control" class="mdc-button" target="_blank">
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon">code</i>
+                        GitHub
+                    </a>
+                </nav>
+            </section>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="glass-card hero-content">
+                <div class="hero-text">
+                    <h1 class="mdc-typography--headline2">Control Your PC with Gemini AI</h1>
+                    <p class="mdc-typography--body1">
+                        A modern, modular application for controlling your computer using natural language commands 
+                        powered by Google's Gemini AI technology.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#installation" class="mdc-button mdc-button--raised">
+                            <span class="mdc-button__ripple"></span>
+                            <i class="material-icons mdc-button__icon">download</i>
+                            Get Started
+                        </a>
+                        <a href="#documentation" class="mdc-button mdc-button--outlined">
+                            <span class="mdc-button__ripple"></span>
+                            <i class="material-icons mdc-button__icon">description</i>
+                            Documentation
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/gemini-pc-control-demo.svg" alt="Gemini PC Control Demonstration">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <h2 class="mdc-typography--headline3 section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <i class="material-icons">language</i>
+                    </div>
+                    <h3 class="mdc-typography--headline5">Natural Language Control</h3>
+                    <p class="mdc-typography--body2">
+                        Control your PC with everyday language instead of complicated commands.
+                    </p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <i class="material-icons">auto_awesome</i>
+                    </div>
+                    <h3 class="mdc-typography--headline5">Gemini AI Powered</h3>
+                    <p class="mdc-typography--body2">
+                        Leverages Google's latest Gemini AI models for intelligent context understanding.
+                    </p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <i class="material-icons">extension</i>
+                    </div>
+                    <h3 class="mdc-typography--headline5">Plugin Extensibility</h3>
+                    <p class="mdc-typography--body2">
+                        Extend functionality with custom plugins to meet your specific needs.
+                    </p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <i class="material-icons">devices</i>
+                    </div>
+                    <h3 class="mdc-typography--headline5">Cross-Platform</h3>
+                    <p class="mdc-typography--body2">
+                        Works seamlessly on Windows, macOS, and Linux operating systems.
+                    </p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <i class="material-icons">computer</i>
+                    </div>
+                    <h3 class="mdc-typography--headline5">Modern UI</h3>
+                    <p class="mdc-typography--body2">
+                        Clean PyQt6-based user interface with intuitive controls.
+                    </p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">
+                        <i class="material-icons">shield</i>
+                    </div>
+                    <h3 class="mdc-typography--headline5">Local Processing</h3>
+                    <p class="mdc-typography--body2">
+                        Your commands are processed locally for improved privacy and security.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section id="architecture" class="architecture-section">
+            <h2 class="mdc-typography--headline3 section-title">Architecture Overview</h2>
+            <div class="glass-card">
+                <div class="architecture-content">
+                    <div class="architecture-text">
+                        <p class="mdc-typography--body1">
+                            Gemini PC Control features a modern, modular architecture designed for maintainability, 
+                            extensibility, and performance.
+                        </p>
+                        <ul class="mdc-list">
+                            <li class="mdc-list-item">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text"><strong>UI Module:</strong> Modern PyQt6 interface with proper separation from business logic</span>
+                            </li>
+                            <li class="mdc-list-item">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text"><strong>AI Module:</strong> Enhanced Gemini API integration with context tracking</span>
+                            </li>
+                            <li class="mdc-list-item">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text"><strong>System Module:</strong> Core system operations (screenshots, command execution)</span>
+                            </li>
+                            <li class="mdc-list-item">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text"><strong>Models:</strong> Structured data models for commands and responses</span>
+                            </li>
+                            <li class="mdc-list-item">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text"><strong>Plugins:</strong> Extensible plugin system for custom functionality</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="architecture-diagram">
+                        <img src="images/architecture-diagram.svg" alt="Gemini PC Control Architecture Diagram">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="installation-section">
+            <h2 class="mdc-typography--headline3 section-title">Installation</h2>
+            <div class="glass-card">
+                <div class="installation-tabs">
+                    <div class="mdc-tab-bar" role="tablist">
+                        <div class="mdc-tab-scroller">
+                            <div class="mdc-tab-scroller__scroll-area">
+                                <div class="mdc-tab-scroller__scroll-content">
+                                    <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label">Quick Install</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+                                    <button class="mdc-tab" role="tab" aria-selected="false" tabindex="-1">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label">Manual Install</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+                                    <button class="mdc-tab" role="tab" aria-selected="false" tabindex="-1">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label">System Requirements</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="installation-content">
+                        <div class="tab-content tab-content--active">
+                            <h3 class="mdc-typography--headline6">Quick Automated Setup</h3>
+                            <p class="mdc-typography--body1">Run the automated setup script to handle everything:</p>
+                            <div class="code-block">
+                                <pre><code>git clone https://github.com/yourusername/gemini-pc-control.git
+cd gemini-pc-control
+python setup.py setup_env</code></pre>
+                            </div>
+                            <p class="mdc-typography--body1">This will:</p>
+                            <ul class="mdc-list">
+                                <li class="mdc-list-item">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons">check</i>
+                                    <span class="mdc-list-item__text">Create a virtual environment</span>
+                                </li>
+                                <li class="mdc-list-item">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons">check</i>
+                                    <span class="mdc-list-item__text">Install all dependencies</span>
+                                </li>
+                                <li class="mdc-list-item">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons">check</i>
+                                    <span class="mdc-list-item__text">Prompt for your Gemini API key</span>
+                                </li>
+                                <li class="mdc-list-item">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <i class="material-icons">check</i>
+                                    <span class="mdc-list-item__text">Create a run script</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <h3 class="mdc-typography--headline6">Manual Installation</h3>
+                            <p class="mdc-typography--body1">For more control, follow these steps:</p>
+                            
+                            <h4 class="mdc-typography--subtitle1">1. Clone the repository:</h4>
+                            <div class="code-block">
+                                <pre><code>git clone https://github.com/yourusername/gemini-pc-control.git
+cd gemini-pc-control</code></pre>
+                            </div>
+                            
+                            <h4 class="mdc-typography--subtitle1">2. Create a virtual environment:</h4>
+                            <div class="code-block">
+                                <pre><code># Using venv (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate</code></pre>
+                            </div>
+                            
+                            <h4 class="mdc-typography--subtitle1">3. Install dependencies:</h4>
+                            <div class="code-block">
+                                <pre><code>pip install -r requirements.txt</code></pre>
+                            </div>
+                            
+                            <h4 class="mdc-typography--subtitle1">4. Run the application:</h4>
+                            <div class="code-block">
+                                <pre><code>python app.py</code></pre>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <h3 class="mdc-typography--headline6">System Requirements</h3>
+                            
+                            <div class="system-requirements">
+                                <div class="requirement-group">
+                                    <h4 class="mdc-typography--subtitle1">Basic Requirements:</h4>
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item">
+                                            <span class="mdc-list-item__ripple"></span>
+                                            <span class="mdc-list-item__text">Python 3.11 or higher</span>
+                                        </li>
+                                        <li class="mdc-list-item">
+                                            <span class="mdc-list-item__ripple"></span>
+                                            <span class="mdc-list-item__text">Google Gemini API key</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="requirement-group">
+                                    <h4 class="mdc-typography--subtitle1">Debian/Ubuntu Dependencies:</h4>
+                                    <div class="code-block">
+                                        <pre><code>sudo apt-get update
+sudo apt-get install -y python3-dev python3-venv
+sudo apt-get install -y qt6-base-dev libqt6-dev
+sudo apt-get install -y build-essential libssl-dev libffi-dev</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="requirement-group">
+                                    <h4 class="mdc-typography--subtitle1">macOS Dependencies:</h4>
+                                    <div class="code-block">
+                                        <pre><code>brew install qt@6
+export PATH="/opt/homebrew/opt/qt@6/bin:$PATH"</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="requirement-group">
+                                    <h4 class="mdc-typography--subtitle1">Windows Dependencies:</h4>
+                                    <ul class="mdc-list">
+                                        <li class="mdc-list-item">
+                                            <span class="mdc-list-item__ripple"></span>
+                                            <span class="mdc-list-item__text">Microsoft Visual C++ Build Tools</span>
+                                        </li>
+                                        <li class="mdc-list-item">
+                                            <span class="mdc-list-item__ripple"></span>
+                                            <span class="mdc-list-item__text">Qt6 (Download from <a href="https://www.qt.io/download" target="_blank">qt.io</a>)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="documentation" class="documentation-section">
+            <h2 class="mdc-typography--headline3 section-title">Documentation</h2>
+            
+            <div class="documentation-grid">
+                <div class="glass-card doc-card">
+                    <div class="doc-icon">
+                        <i class="material-icons">play_arrow</i>
+                    </div>
+                    <h3 class="mdc-typography--headline6">Getting Started</h3>
+                    <p class="mdc-typography--body2">
+                        Learn how to set up and run Gemini PC Control for the first time.
+                    </p>
+                    <a href="getting-started.html" class="mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        Read More
+                    </a>
+                </div>
+                
+                <div class="glass-card doc-card">
+                    <div class="doc-icon">
+                        <i class="material-icons">code</i>
+                    </div>
+                    <h3 class="mdc-typography--headline6">API Reference</h3>
+                    <p class="mdc-typography--body2">
+                        Detailed documentation of the application's modules and classes.
+                    </p>
+                    <a href="api-reference.html" class="mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        Read More
+                    </a>
+                </div>
+                
+                <div class="glass-card doc-card">
+                    <div class="doc-icon">
+                        <i class="material-icons">extension</i>
+                    </div>
+                    <h3 class="mdc-typography--headline6">Plugin Development</h3>
+                    <p class="mdc-typography--body2">
+                        Create custom plugins to extend the application's functionality.
+                    </p>
+                    <a href="plugin-development.html" class="mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        Read More
+                    </a>
+                </div>
+                
+                <div class="glass-card doc-card">
+                    <div class="doc-icon">
+                        <i class="material-icons">help_outline</i>
+                    </div>
+                    <h3 class="mdc-typography--headline6">Troubleshooting</h3>
+                    <p class="mdc-typography--body2">
+                        Solutions to common issues and frequently asked questions.
+                    </p>
+                    <a href="troubleshooting.html" class="mdc-button mdc-button--outlined">
+                        <span class="mdc-button__ripple"></span>
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3 class="mdc-typography--headline6">Gemini PC Control</h3>
+                <p class="mdc-typography--body2">Control your PC with natural language</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4 class="mdc-typography--subtitle1">Project</h4>
+                    <ul class="mdc-list">
+                        <li><a href="https://github.com/yourusername/gemini-pc-control" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://github.com/yourusername/gemini-pc-control/issues" target="_blank">Issue Tracker</a></li>
+                        <li><a href="https://github.com/yourusername/gemini-pc-control/releases" target="_blank">Releases</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="mdc-typography--subtitle1">Resources</h4>
+                    <ul class="mdc-list">
+                        <li><a href="https://aistudio.google.com/app/apikey" target="_blank">Get Gemini API Key</a></li>
+                        <li><a href="https://python.org" target="_blank">Python.org</a></li>
+                        <li><a href="https://pypi.org/project/google-generativeai/" target="_blank">Gemini Python SDK</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="mdc-typography--subtitle1">Documentation</h4>
+                    <ul class="mdc-list">
+                        <li><a href="getting-started.html">Getting Started</a></li>
+                        <li><a href="api-reference.html">API Reference</a></li>
+                        <li><a href="plugin-development.html">Plugin Development</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="mdc-typography--caption">
+                &copy; 2023-2024 Gemini PC Control Team. Licensed under the MIT License.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

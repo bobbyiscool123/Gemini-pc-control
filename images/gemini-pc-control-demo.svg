@@ -1,0 +1,93 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F0FE" />
+      <stop offset="100%" stop-color="#C5CAE9" />
+    </linearGradient>
+    
+    <!-- Glass effect for windows -->
+    <filter id="glass" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glass" />
+    </filter>
+    
+    <linearGradient id="screenGlare" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.7)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" rx="20" fill="url(#bgGradient)" />
+  
+  <!-- Computer Monitor -->
+  <rect x="60" y="60" width="300" height="240" rx="10" fill="#34495E" />
+  <rect x="70" y="70" width="280" height="200" rx="5" fill="#1E293B" />
+  
+  <!-- Monitor Stand -->
+  <rect x="180" y="300" width="60" height="20" rx="5" fill="#34495E" />
+  <rect x="190" y="320" width="40" height="10" rx="2" fill="#34495E" />
+  
+  <!-- Computer Screen Content -->
+  <rect x="80" y="80" width="260" height="180" rx="3" fill="#F8F9FA" />
+  <rect x="80" y="80" width="260" height="180" rx="3" fill="url(#screenGlare)" />
+  
+  <!-- App UI on Screen -->
+  <!-- Top bar -->
+  <rect x="80" y="80" width="260" height="30" rx="3" fill="#4285F4" />
+  <text x="100" y="100" font-family="Roboto, sans-serif" font-size="12" fill="white">Gemini PC Control</text>
+  
+  <!-- Sidebar -->
+  <rect x="80" y="110" width="60" height="150" fill="#FFFFFF" />
+  <circle cx="110" cy="130" r="8" fill="#4285F4" />
+  <circle cx="110" cy="160" r="8" fill="#EA4335" />
+  <circle cx="110" cy="190" r="8" fill="#FBBC04" />
+  <circle cx="110" cy="220" r="8" fill="#34A853" />
+  
+  <!-- Main content area -->
+  <rect x="140" y="110" width="200" height="150" fill="#FFFFFF" />
+  <rect x="150" y="120" width="180" height="70" rx="4" fill="#F1F3F4" />
+  <text x="160" y="140" font-family="Roboto, sans-serif" font-size="10" fill="#5F6368">User prompt:</text>
+  <text x="160" y="160" font-family="Roboto, sans-serif" font-size="10" fill="#202124">"Open Chrome and go to Google.com"</text>
+  
+  <!-- Response area -->
+  <rect x="150" y="200" width="180" height="50" rx="4" fill="#E8F0FE" />
+  <text x="160" y="220" font-family="Roboto, sans-serif" font-size="10" fill="#4285F4">Processing command...</text>
+  
+  <!-- AI Assistant Interface -->
+  <rect x="400" y="100" width="140" height="200" rx="15" fill="rgba(255,255,255,0.8)" filter="url(#glass)" />
+  
+  <!-- Assistant Header -->
+  <rect x="400" y="100" width="140" height="40" rx="15" fill="#4285F4" />
+  <text x="470" y="125" font-family="Roboto, sans-serif" font-size="14" fill="white" text-anchor="middle">Gemini AI</text>
+  
+  <!-- Assistant Avatar -->
+  <circle cx="470" cy="170" r="25" fill="#FFFFFF" stroke="#4285F4" stroke-width="2" />
+  <path d="M 465 165 L 475 165 M 465 175 L 475 175" stroke="#4285F4" stroke-width="2" stroke-linecap="round" />
+  <circle cx="460" cy="160" r="2" fill="#4285F4" />
+  <circle cx="480" cy="160" r="2" fill="#4285F4" />
+  
+  <!-- Wave Form -->
+  <path d="M 425 225 L 425 235 M 435 220 L 435 240 M 445 215 L 445 245 M 455 210 L 455 250 M 465 215 L 465 245 M 475 220 L 475 240 M 485 225 L 485 235 M 495 227 L 495 233 M 505 228 L 505 232 M 515 229 L 515 231" stroke="#4285F4" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Command Execution Visualization -->
+  <path d="M 330 150 C 360 150, 370 170, 400 170" stroke="#4285F4" stroke-width="2" stroke-dasharray="5,5" fill="none" />
+  <path d="M 395 165 L 405 170 L 395 175" fill="#4285F4" />
+  
+  <!-- Response Visualization -->
+  <path d="M 400 200 C 370 200, 360 180, 330 180" stroke="#34A853" stroke-width="2" stroke-dasharray="5,5" fill="none" />
+  <path d="M 335 175 L 325 180 L 335 185" fill="#34A853" />
+  
+  <!-- Visual Elements - Abstract -->
+  <circle cx="70" cy="340" r="15" fill="#4285F4" opacity="0.7" />
+  <circle cx="530" cy="60" r="20" fill="#EA4335" opacity="0.7" />
+  <circle cx="550" cy="340" r="25" fill="#FBBC04" opacity="0.7" />
+  <circle cx="400" cy="50" r="12" fill="#34A853" opacity="0.7" />
+  
+  <!-- Decorative Elements -->
+  <path d="M 40 40 L 50 40 L 50 50" stroke="#4285F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <path d="M 560 40 L 550 40 L 550 50" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <path d="M 40 360 L 50 360 L 50 350" stroke="#FBBC04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <path d="M 560 360 L 550 360 L 550 350" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+</svg> 
